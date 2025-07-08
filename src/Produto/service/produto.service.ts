@@ -27,7 +27,7 @@ export class ProdutoService {
     });
 
     if (!produto)
-      throw new HttpException('Produto não encontrado!', HttpStatus.NOT_FOUND);
+      throw new HttpException('Remédio não encontrado!', HttpStatus.NOT_FOUND);
 
     return produto;
   }
@@ -47,19 +47,19 @@ export class ProdutoService {
   }
 
   async update(remedio: Produto): Promise<Produto> {
-    const buscaExercicio = await this.findById(remedio.id);
+    const buscaRemedio = await this.findById(remedio.id);
 
-    if (!buscaExercicio || !remedio.id)
-      throw new HttpException('Treino não encontrado!', HttpStatus.NOT_FOUND);
+    if (!buscaRemedio || !remedio.id)
+      throw new HttpException('Remédio não encontrado!', HttpStatus.NOT_FOUND);
 
     return await this.produtoRepository.save(remedio);
   }
 
   async delete(id: number): Promise<DeleteResult> {
-    const buscaExercicio = await this.findById(id);
+    const buscaRemedio = await this.findById(id);
 
-    if (!buscaExercicio)
-      throw new HttpException('Treino não encontrado!', HttpStatus.NOT_FOUND);
+    if (!buscaRemedio)
+      throw new HttpException('Remédio não encontrado!', HttpStatus.NOT_FOUND);
 
     return await this.produtoRepository.delete(id);
   }

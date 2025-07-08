@@ -20,7 +20,7 @@ export class Produto {
   preco: number;
 
   @IsNotEmpty()
-  @Column({ length: 255, nullable: false })
+  @Column({ length: 50, nullable: false })
   marca: string;
 
   @IsNotEmpty()
